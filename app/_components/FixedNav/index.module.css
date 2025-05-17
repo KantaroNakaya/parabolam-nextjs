@@ -1,0 +1,31 @@
+.bottomNav {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    width: 100vw;
+    height: 16.65vw;
+    background-color: var(--color-red);
+    display: flex;
+    z-index: 100;
+}
+.bottomLink {
+    width: 33.3vw;
+    height: 16.65vw;
+    margin: auto;
+    border: 1px solid #e6e6e6;
+    border-top: 2px solid #e6e6e6;
+    background-color: var(--color-red);
+}
+.bottomLink:hover {
+    background-color: #333333;
+}
+.bottomLink img {
+    width: 100%;
+}
+
+@media screen and (min-width: 768px) {
+    .bottomNav {
+        display: none;
+    }
+}

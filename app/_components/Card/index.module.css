@@ -1,0 +1,126 @@
+.card {
+    display: flex;
+    flex-direction: column;
+    margin: 56px auto;
+    padding: 0% 4% 6%;
+    background-color: #e6e6e6;
+    color: #333333;
+    position: relative;
+}
+.card:nth-child(2n) {
+    transform: rotate(1deg);
+}
+.card:nth-child(2n + 1) {
+    transform: rotate(-1deg);
+}
+.card1 {
+    grid-column: 1/3;
+}
+
+.card2 {
+    grid-column: 2/4;
+}
+
+.card3 {
+    grid-column: 1/3;
+}
+
+.pin {
+    width: 60px;
+    margin: 0 auto 16px;
+}
+
+.point {
+    max-width: unset;
+    margin: 0px auto 32px;
+    text-align: center;
+}
+
+.desc {
+    width: 80%;
+    max-width: 480px;
+    margin: 0 auto;
+    font-size: 18px;
+}
+
+.image {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 30%;
+    height: auto;
+    position: absolute;
+    top: -16%;
+    border: 2.4px solid #fff;
+}
+
+.image img {
+    width: 100%;
+    height: 100%;
+    aspect-ratio: 4/3;
+    object-fit: cover;
+}
+.card:nth-child(2n + 1) .image {
+    right: -16%;
+    transform: rotate(8deg);
+}
+.card:nth-child(2n) .image {
+    left: -16%;
+    transform: rotate(-8deg);
+}
+
+.animateLine {
+    padding-bottom: 4px;
+    background-image: linear-gradient(var(--color-red), var(--color-red));
+    background-size: 0 4px;
+    background-position: bottom right;
+    background-repeat: no-repeat;
+    transition: background-size 0.8s ease-out;
+    font-size: 24px;
+    font-weight: bold;
+    text-align: center;
+    line-height: 1.5;
+}
+.animateLine.inview {
+    background-size: 100% 4px;
+    background-position: bottom left;
+}
+
+@media screen and (max-width: 768px) {
+    .card {
+        width: 90%;
+        margin: 64px auto;
+        padding: 16px 0;
+        transform: rotate(0deg);
+        grid-column: 1/2;
+    }
+    .card:nth-child(2n + 1) .image {
+        right: -3%;
+        transform: rotate(8deg);
+    }
+    .card:nth-child(2n) .image {
+        left: -3%;
+        transform: rotate(-8deg);
+    }
+    .animateLine {
+        font-size: 20px;
+    }
+
+    .pin {
+        margin: 0 auto;
+    }
+
+    .point {
+        margin-bottom: 24px;
+    }
+
+    .desc {
+        max-width: 312px;
+        font-size: 16px;
+    }
+    .image {
+        width: 32%;
+        margin: 0 auto;
+        top: -8%;
+    }
+}

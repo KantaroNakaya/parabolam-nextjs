@@ -1,0 +1,38 @@
+import styles from "@/app/page.module.css";
+import { getNewsList } from "@/app/_libs/microcms";
+import { TOP_NEWS_LIMIT } from "@/app/_constants";
+import NewsList from "@/app/_components/NewsList";
+import MvSlider from "@/app/_components/MvSlider";
+import MvText from "@/app/_components/MvText";
+import { mvImages } from "@/app/_libs/mv";
+import Card from "@/app/_components/Card";
+import { cards } from "@/app/_libs/card";
+
+export default async function Home() {
+    const data = await getNewsList({
+        limit: TOP_NEWS_LIMIT,
+    });
+    return (
+        <>
+            <section className={styles.mv}>
+                <MvSlider images={mvImages} />
+                <MvText />
+            </section>
+            <section className={styles.feature}>
+                {cards.map((card, index) => (
+                    <Card
+                        key={card.key}
+                        point={card.point}
+                        desc={card.desc}
+                        image={card.image}
+                        index={index + 1}
+                    />
+                ))}
+            </section>
+            <section className={styles.news}>
+                <h2 className={styles.sectionTitle}>NEWS</h2>
+                <NewsList news={data.contents} />
+            </section>
+        </>
+    );
+}

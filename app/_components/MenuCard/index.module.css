@@ -1,0 +1,62 @@
+.card {
+  width: 100%;
+  padding-top: 16px;
+  background-color: #e6e6e6;
+  color: #333333;
+}
+.title {
+  margin-bottom: 8px;
+  text-align: center;
+}
+
+.title span {
+  display: inline-flex;
+  padding-top: 16px;
+  align-items: center;
+  color: #333;
+  font-size: 22px;
+  text-transform: uppercase;
+}
+
+.title span::before {
+  content: "";
+  display: inline-block;
+  margin-right: 15px;
+  width: 30px;
+  height: 1px;
+  background-color: #333333;
+}
+.title span::after {
+  content: "";
+  display: inline-block;
+  margin-left: 15px;
+  width: 30px;
+  height: 1px;
+  background-color: #333333;
+}
+
+.photo {
+  width: 100%;
+  padding: 16px;
+}
+
+.menu {
+  width: 90%;
+  margin: 0 auto;
+}
+.menu tr {
+  display: grid;
+  width: 100%;
+  grid-template-columns: 1fr 1fr;
+  font-size: 18px;
+  line-height: 32px;
+}
+.name {
+  padding-left: 8px;
+  white-space: nowrap;
+  text-align: left;
+}
+.price {
+  padding-right: 8px;
+  text-align: right;
+}

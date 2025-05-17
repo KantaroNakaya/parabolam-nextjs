@@ -1,0 +1,14 @@
+.container {
+  padding: 40px 0;
+}
+.text {
+  text-align: center;
+  margin-bottom: 40px;
+  font-size: 1rem;
+}
+
+@media (max-width: 640px) {
+  .text {
+    text-align: left;
+  }
+}

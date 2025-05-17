@@ -1,0 +1,32 @@
+.mv {
+    position: relative;
+    z-index: 1;
+    margin-bottom: 120px;
+}
+
+.feature {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    margin-bottom: 120px;
+}
+.news {
+    width: 60%;
+    margin: 0 auto 120px;
+}
+.sectionTitle {
+    text-align: center;
+}
+
+@media screen and (max-width: 768px) {
+    .mv {
+        margin-bottom: 40px;
+    }
+    .feature {
+        grid-template-columns: repeat(1, 1fr);
+        margin-bottom: 40px;
+    }
+    .news {
+        width: 90%;
+        margin: 0 auto 40px;
+    }
+}

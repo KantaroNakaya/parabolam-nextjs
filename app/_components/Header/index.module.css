@@ -1,0 +1,110 @@
+.pcNav {
+    display: flex;
+    width: 100%;
+    height: 100px;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8px 4%;
+    background-color: var(--color-red);
+}
+
+.pcShop {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 80px;
+    background-color: #ffffff12;
+}
+
+.pcShop img {
+    width: 100%;
+    height: auto;
+}
+
+.pcShop:hover {
+    background-color: #333333;
+}
+
+.pcList {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: 8px;
+}
+
+.pcLink {
+    display: flex;
+    width: 80px;
+    align-items: center;
+    justify-content: center;
+    background-color: #ffffff12;
+}
+
+.pcLink img {
+    width: 100%;
+    height: auto;
+}
+
+.pcLink:hover {
+    background-color: #333333;
+}
+.spNav {
+    display: none;
+}
+
+.spShop {
+    display: none;
+}
+
+.spContact {
+    display: none;
+}
+
+@media screen and (max-width: 768px) {
+    .pcNav {
+        display: none;
+    }
+
+    .spNav {
+        display: flex;
+        width: 100%;
+        height: 80px;
+        background-color: var(--color-red);
+        position: relative;
+    }
+
+    .spShop {
+        display: block;
+        width: 80px;
+        height: 80px;
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translateY(-50%) translateX(-50%);
+    }
+
+    .spShop img {
+        width: 100%;
+    }
+
+    .spShop:hover {
+        background-color: #333333;
+    }
+
+    .spContact {
+        display: block;
+        width: 80px;
+        height: 80px;
+        position: absolute;
+        right: 0%;
+        top: 50%;
+        transform: translateY(-50%) translateX(-10%);
+    }
+
+    .spContact img {
+        width: 100%;
+    }
+
+    .spContact:hover {
+        background-color: #333333;
+    }
+}

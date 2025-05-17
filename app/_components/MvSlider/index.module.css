@@ -1,0 +1,17 @@
+.slideContainer {
+  height: calc(100vh - 100px);
+}
+.slide {
+  width: 100%;
+  height: auto;
+}
+.slide img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+@media screen and (max-width: 768px) {
+  .slideContainer {
+    height: calc(100vh - 80px);
+  }
+}
