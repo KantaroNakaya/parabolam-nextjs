@@ -16,7 +16,6 @@ export default function ContactForm() {
         success: false,
     });
     const [isLoading, setIsLoading] = useState(false);
-    console.log(isLoading);
 
     const handleSubmit = async (formData: FormData) => {
         setIsLoading(true);
@@ -46,7 +45,9 @@ export default function ContactForm() {
             <p className={styles.success}>
                 お問い合わせいただき、ありがとうございます。
                 <br />
-                お返事まで今しばらくお待ちください。
+                内容確認後、担当者より通常３営業日以内に連絡いたします。
+                <br />
+                今しばらくお待ちください。
             </p>
         );
     }
@@ -56,70 +57,79 @@ export default function ContactForm() {
     }
 
     return (
-        <form
-            onSubmit={(e) => {
-                e.preventDefault();
-                handleSubmit(new FormData(e.currentTarget));
-            }}
-            className={styles.form}
-        >
-            <div className={styles.horizontal}>
+        <>
+            <p className={styles.text}>
+                ご質問やご相談は、下記のフォームをご利用ください。
+                <br />
+                内容確認後、担当者より通常３営業日以内に連絡いたします。
+            </p>
+            <form
+                onSubmit={(e) => {
+                    e.preventDefault();
+                    handleSubmit(new FormData(e.currentTarget));
+                }}
+                className={styles.form}
+            >
+                <div className={styles.horizontal}>
+                    <div className={styles.item}>
+                        <label htmlFor="lastname" className={styles.label}>
+                            姓
+                        </label>
+                        <input
+                            type="text"
+                            id="lastname"
+                            className={styles.textfield}
+                            name="lastname"
+                            required
+                        />
+                    </div>
+                    <div className={styles.item}>
+                        <label htmlFor="firstname" className={styles.label}>
+                            名
+                        </label>
+                        <input
+                            type="text"
+                            id="firstname"
+                            className={styles.textfield}
+                            name="firstname"
+                            required
+                        />
+                    </div>
+                </div>
                 <div className={styles.item}>
-                    <label htmlFor="lastname" className={styles.label}>
-                        姓
+                    <label htmlFor="email" className={styles.label}>
+                        メールアドレス
                     </label>
                     <input
-                        type="text"
-                        id="lastname"
+                        type="email"
+                        id="email"
                         className={styles.textfield}
-                        name="lastname"
+                        name="email"
                         required
                     />
                 </div>
                 <div className={styles.item}>
-                    <label htmlFor="firstname" className={styles.label}>
-                        名
+                    <label htmlFor="message" className={styles.label}>
+                        メッセージ
                     </label>
-                    <input
-                        type="text"
-                        id="firstname"
+                    <textarea
+                        id="message"
                         className={styles.textfield}
-                        name="firstname"
+                        name="message"
                         required
                     />
                 </div>
-            </div>
-            <div className={styles.item}>
-                <label htmlFor="email" className={styles.label}>
-                    メールアドレス
-                </label>
-                <input
-                    type="email"
-                    id="email"
-                    className={styles.textfield}
-                    name="email"
-                    required
-                />
-            </div>
-            <div className={styles.item}>
-                <label htmlFor="message" className={styles.label}>
-                    メッセージ
-                </label>
-                <textarea
-                    id="message"
-                    className={styles.textfield}
-                    name="message"
-                    required
-                />
-            </div>
-            <div className={styles.actions}>
-                {state.error && <p className={styles.error}>{state.error}</p>}
-                <input
-                    type="submit"
-                    value="送信する"
-                    className={styles.button}
-                />
-            </div>
-        </form>
+                <div className={styles.actions}>
+                    {state.error && (
+                        <p className={styles.error}>{state.error}</p>
+                    )}
+                    <input
+                        type="submit"
+                        value="送信する"
+                        className={styles.button}
+                    />
+                </div>
+            </form>
+        </>
     );
 }
