@@ -39,11 +39,12 @@
     transition: all 0.3s;
 }
 .accessLink:hover {
-    transform: translateY(4px);
-    box-shadow: none;
+    transform: translateY(2px);
+    box-shadow: 0px 6px 0px #911f23;
 }
 .accessLink:active {
-    transform: translateY(8px);
+    transform: translateY(6px);
+    box-shadow: none;
 }
 
 @media screen and (max-width: 768px) {
