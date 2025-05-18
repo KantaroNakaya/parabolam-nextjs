@@ -15,22 +15,29 @@ export default function ContactForm() {
     const [state, setState] = useState<FormState>({
         success: false,
     });
+    const [isLoading, setIsLoading] = useState(false);
+    console.log(isLoading);
 
     const handleSubmit = async (formData: FormData) => {
-        const data = {
-            name: `${formData.get("lastname")} ${formData.get("firstname")}`,
-            email: formData.get("email") as string,
-            message: formData.get("message") as string,
-        };
+        setIsLoading(true);
+        try {
+            const data = {
+                name: `${formData.get("lastname")} ${formData.get("firstname")}`,
+                email: formData.get("email") as string,
+                message: formData.get("message") as string,
+            };
 
-        const result = await submitContactForm(data);
-        setState(result);
+            const result = await submitContactForm(data);
+            setState(result);
 
-        if (result.success) {
-            sendGTMEvent({
-                event: "contact",
-                value: "submit",
-            });
+            if (result.success) {
+                sendGTMEvent({
+                    event: "contact",
+                    value: "submit",
+                });
+            }
+        } finally {
+            setIsLoading(false);
         }
     };
 
@@ -44,8 +51,18 @@ export default function ContactForm() {
         );
     }
 
+    if (isLoading) {
+        return <div className={styles.loader}>Loading...</div>;
+    }
+
     return (
-        <form action={handleSubmit} className={styles.form}>
+        <form
+            onSubmit={(e) => {
+                e.preventDefault();
+                handleSubmit(new FormData(e.currentTarget));
+            }}
+            className={styles.form}
+        >
             <div className={styles.horizontal}>
                 <div className={styles.item}>
                     <label htmlFor="lastname" className={styles.label}>
