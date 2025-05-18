@@ -1,95 +1,73 @@
 "use server";
 
 function validateEmail(email: string) {
-  const pattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-  return pattern.test(email);
+    const pattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return pattern.test(email);
 }
 
-export async function createContactData(_prevState: any, formData: FormData) {
-  const rawFormData = {
-    lastname: formData.get("lastname") as string,
-    firstname: formData.get("firstname") as string,
-    company: formData.get("company") as string,
-    email: formData.get("email") as string,
-    message: formData.get("message") as string,
-  };
+type ContactFormData = {
+    name: string;
+    email: string;
+    message: string;
+};
 
-  if (!rawFormData.lastname) {
-    return {
-      status: "error",
-      message: "姓を入力してください",
-    };
-  }
-  if (!rawFormData.firstname) {
-    return {
-      status: "error",
-      message: "名を入力してください",
-    };
-  }
-  if (!rawFormData.company) {
-    return {
-      status: "error",
-      message: "会社名を入力してください",
-    };
-  }
-  if (!rawFormData.email) {
-    return {
-      status: "error",
-      message: "メールアドレスを入力してください",
-    };
-  }
+type FormResponse = {
+    success: boolean;
+    message?: string;
+    error?: string;
+};
 
-  const result = await fetch(
-    `https://api.hsforms.com/submissions/v3/integration/submit/${process.env.HUBSPOT_PORTAL_ID}/${process.env.HUBSPOT_FORM_ID}`,
-    {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        fields: [
-          {
-            objectTypeId: "0-1",
-            name: "lastname",
-            value: rawFormData.lastname,
-          },
-          {
-            objectTypeId: "0-1",
-            name: "firstname",
-            value: rawFormData.firstname,
-          },
-          {
-            objectTypeId: "0-1",
-            name: "company",
-            value: rawFormData.company,
-          },
-          {
-            objectTypeId: "0-1",
-            name: "email",
-            value: rawFormData.email,
-          },
-          {
-            objectTypeId: "0-1",
-            name: "message",
-            value: rawFormData.message,
-          },
-        ],
-      }),
-    },
-  );
+export async function submitContactForm(
+    data: ContactFormData
+): Promise<FormResponse> {
+    // バリデーション
+    if (!data.name || data.name.trim() === "") {
+        return { success: false, error: "お名前を入力してください" };
+    }
 
-  try {
-    await result.json();
-  } catch (e) {
-    console.log(e);
-    return {
-      status: "error",
-      message: "お問い合わせに失敗しました",
-    };
-  }
+    if (!data.email || data.email.trim() === "") {
+        return { success: false, error: "メールアドレスを入力してください" };
+    }
 
-  return {
-    status: "success",
-    message: "OK",
-  };
+    if (!validateEmail(data.email)) {
+        return {
+            success: false,
+            error: "有効なメールアドレスを入力してください",
+        };
+    }
+
+    if (!data.message || data.message.trim() === "") {
+        return { success: false, error: "メッセージを入力してください" };
+    }
+
+    try {
+        // サーバーサイドでのfetchには絶対URLが必要
+        const baseUrl =
+            process.env.NEXT_PUBLIC_BASE_URL;
+        const response = await fetch(`${baseUrl}/api/contact`, {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify(data),
+        });
+
+        if (!response.ok) {
+            const errorData = await response.json();
+            throw new Error(
+                errorData.error || "メッセージの送信に失敗しました"
+            );
+        }
+
+        return { success: true, message: "メッセージが送信されました" };
+    } catch (error) {
+        console.error("Error submitting contact form:", error);
+        return {
+            success: false,
+            error:
+                error instanceof Error
+                    ? error.message
+                    : "メッセージの送信に失敗しました",
+        };
+    }
 }
