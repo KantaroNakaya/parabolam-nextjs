@@ -7,7 +7,7 @@ import MvText from "@/app/_components/MvText";
 import { mvImages } from "@/app/_libs/mv";
 import Card from "@/app/_components/Card";
 import { cards } from "@/app/_libs/card";
-
+import ButtonLink from "@/app/_components/ButtonLink";
 export default async function Home() {
     const data = await getNewsList({
         limit: TOP_NEWS_LIMIT,
@@ -32,6 +32,11 @@ export default async function Home() {
             <section className={styles.news}>
                 <h2 className={styles.sectionTitle}>NEWS</h2>
                 <NewsList news={data.contents} />
+                <div className={styles.buttonWrapper}>
+                    <a href="/news" className={styles.button}>
+                        ニュース一覧へ
+                    </a>
+                </div>
             </section>
         </>
     );
