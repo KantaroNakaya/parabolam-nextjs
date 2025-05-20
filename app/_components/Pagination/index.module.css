@@ -16,10 +16,11 @@
   align-items: center;
   width: 36px;
   height: 36px;
-  border-radius: var(--border-radius);
+  background-color: #c1272d;
+  border: 1px solid #fff;
 }
 
 .current {
-  color: var(--color-text-unpainted);
-  background-color: var(--color-button-primary);
+  color: #fff;
+  background-color: #be6568a7;
 }

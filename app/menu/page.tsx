@@ -5,7 +5,7 @@ import MenuList from "@/app/_components/MenuList";
 import PageTitle from "@/app/_components/PageTitle";
 export default function Page() {
     return (
-        <div>
+        <div className={styles.container}>
             <PageTitle title="MENU" />
             <MenuList data={[]} />
         </div>

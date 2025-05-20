@@ -3,7 +3,7 @@ import styles from "./page.module.css";
 
 export default function Page() {
     return (
-        <div>
+        <div className={styles.container}>
             <PageTitle title="MAP" />
             <div className={styles.mapSmall}>
                 <iframe
