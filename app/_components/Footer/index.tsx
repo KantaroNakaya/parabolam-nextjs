@@ -42,7 +42,7 @@ export default function Footer() {
         </div>
       </div>
 
-      <a className={styles.footerLogo} href="#">
+      <a className={styles.footerLogo} href="/">
         <Image
           src="/logo-shop.png"
           alt="parabolam"
@@ -52,7 +52,7 @@ export default function Footer() {
         />
       </a>
 
-      <a className={styles.footerLogoType} href="#">
+      <a className={styles.footerLogoType} href="/">
         <Image
           src="/logo-title.png"
           alt="parabolam"
