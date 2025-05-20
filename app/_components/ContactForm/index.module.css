@@ -35,7 +35,6 @@
 }
 
 .textfield {
-    border: 1px solid var(--color-border);
     padding: 8px;
     border-radius: 4px;
     line-height: 1.5;
@@ -43,7 +42,6 @@
 }
 
 .textarea {
-    border: 1px solid var(--color-border);
     padding: 8px;
     border-radius: 4px;
     line-height: 1.5;
@@ -52,9 +50,8 @@
 
 .actions {
     text-align: center;
-    margin-top: 40px;
+    margin: 40px 0;
 }
-
 
 .button {
     display: inline-block;
@@ -69,25 +66,23 @@
     color: #e6e6e6;
     transition: all 0.3s;
     cursor: pointer;
-  }
-  .button:hover {
+}
+.button:hover {
     transform: translateY(2px);
     box-shadow: 0px 6px 0px #911f23;
-  }
-  .button:active {
+}
+.button:active {
     transform: translateY(6px);
     box-shadow: none;
-  }
+}
 
 .success {
-    background-color: var(--color-bg-sub);
     text-align: center;
     padding: 40px;
     border-radius: var(--border-radius);
 }
 
 .error {
-    color: var(--color-text-error);
     font-size: 14px;
     margin-bottom: 8px;
 }

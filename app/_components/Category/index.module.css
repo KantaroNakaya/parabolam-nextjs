@@ -1,5 +1,4 @@
 .tag {
-  background-color: var(--color-bg-sub);
   padding: 4px 12px;
   border-radius: var(--border-radius);
   white-space: nowrap;

@@ -11,7 +11,6 @@
 
 .description {
     font-size: 1rem;
-    color: var(--color-text-sub);
     margin: 24px 0;
     text-align: left;
 }
@@ -43,7 +42,6 @@
     margin: 2.8rem 0 1rem;
     font-size: 2rem;
     font-weight: bold;
-    border-bottom: 1px solid var(--color-border);
 }
 
 .content > h2 {
@@ -81,7 +79,6 @@
 }
 
 .content pre > code {
-    background-color: var(--color-bg-code);
     display: block;
     overflow-x: auto;
     padding: 16px;
@@ -89,7 +86,6 @@
 
 .content div[data-filename]::before {
     display: inline-block;
-    background-color: var(--color-bg-sub);
     content: attr(data-filename);
     margin: 1em 0 0;
     font-family: menlo, inconsolata, monospace;
@@ -136,7 +132,6 @@
 }
 
 .content > blockquote {
-    border-left: 4px solid var(--color-border);
     padding-left: 1rem;
     font-style: italic;
     margin: 2rem 0;
@@ -145,7 +140,6 @@
 .content > hr {
     margin: 4rem 0;
     height: 1px;
-    background-color: var(--color-border);
     border: none;
 }
 
@@ -155,7 +149,6 @@
 }
 
 .content > table th {
-    background-color: var(--color-bg-sub);
     text-align: left;
     padding: 1rem;
 }
@@ -176,7 +169,6 @@
 
     .description {
         font-size: 0.9rem;
-        color: var(--color-text-sub);
         margin: 24px 0 40px;
     }
 
