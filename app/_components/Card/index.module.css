@@ -71,6 +71,7 @@
 
 .animateLine {
     padding-bottom: 4px;
+    background-image: linear-gradient(var(--color-red), var(--color-red));
     background-size: 0 4px;
     background-position: bottom right;
     background-repeat: no-repeat;
