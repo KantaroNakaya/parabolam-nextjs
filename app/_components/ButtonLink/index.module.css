@@ -1,21 +1,14 @@
+
 .button {
-    display: block;
-    padding: 20px 40px;
-    border-radius: var(--border-radius);
-    width: 300px;
+    display: inline-block;
+    padding: 0.1em 0.8em;
+    background-color: #c1272d;
     color: #fff;
-    font-size: 24px;
-    text-align: center;
+    font-size: 20px;
+    text-decoration: none;
+    border-radius: 1px;
+    transition: all 0.3s ease;
 }
-
 .button:hover {
-    opacity: 0.9;
-}
-
-@media (max-width: 640px) {
-    .button {
-        padding: 16px 24px;
-        width: 100%;
-        font-size: 16px;
-    }
+    background-color: #911f23;
 }

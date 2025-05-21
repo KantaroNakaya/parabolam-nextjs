@@ -33,9 +33,7 @@ export default async function Home() {
                 <h2 className={styles.sectionTitle}>NEWS</h2>
                 <NewsList news={data.contents} />
                 <div className={styles.buttonWrapper}>
-                    <a href="/news" className={styles.button}>
-                        ニュース一覧へ
-                    </a>
+                    <ButtonLink href="/news">ニュース一覧へ</ButtonLink>
                 </div>
             </section>
         </>
