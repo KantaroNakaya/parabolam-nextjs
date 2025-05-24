@@ -5,7 +5,7 @@ import NewsList from "@/app/_components/NewsList";
 import MvSlider from "@/app/_components/MvSlider";
 import MvText from "@/app/_components/MvText";
 import { mvImages } from "@/app/_libs/mv";
-import Card from "@/app/_components/Card";
+import Card from "@/app/_components/IntroCard";
 import { cards } from "@/app/_libs/card";
 import ButtonLink from "@/app/_components/ButtonLink";
 export default async function Home() {
