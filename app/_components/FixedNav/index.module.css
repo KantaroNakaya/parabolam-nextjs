@@ -10,18 +10,33 @@
     z-index: 100;
 }
 .bottomLink {
+    display: flex;
+    align-items: center;
+    justify-content: center;
     width: 33.3vw;
     height: 16.65vw;
     margin: auto;
     border: 1px solid #e6e6e6;
     border-top: 2px solid #e6e6e6;
     background-color: var(--color-red);
+    position: relative;
+}
+.bottomLink span {
+    color: #fff;
+    font-size: 1.2rem;
+    font-weight: bold;
 }
 .bottomLink:hover {
     background-color: #333333;
 }
 .bottomLink img {
-    width: 100%;
+    width: 12vw;
+    height: 12vw;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    opacity: 0.2;
 }
 
 @media screen and (min-width: 768px) {
