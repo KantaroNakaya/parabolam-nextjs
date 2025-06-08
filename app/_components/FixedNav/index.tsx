@@ -7,7 +7,7 @@ export default function FixedNav() {
       <a className={styles.bottomLink} href="/menu">
         <span>MENU</span>
         <Image
-          src="/fixedLogo-menu.svg"
+          src="/menu.svg"
           alt=""
           width={100}
           height={100}
@@ -16,7 +16,7 @@ export default function FixedNav() {
       <a className={styles.bottomLink} href="/map">
         <span>MAP</span>
         <Image
-          src="/fixedLogo-map.svg"
+          src="/map.svg"
           alt=""
           width={100}
           height={100}
@@ -25,7 +25,7 @@ export default function FixedNav() {
       <a className={styles.bottomLink} href="/news">
         <span>NEWS</span>
         <Image
-          src="/fixedLogo-news.svg"
+          src="/news.svg"
           alt=""
           width={100}
           height={100}

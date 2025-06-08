@@ -1,5 +1,4 @@
 import Image from "next/image";
-import Link from "next/link";
 import styles from "./index.module.css";
 
 export default function Header() {
@@ -18,39 +17,43 @@ export default function Header() {
         <div className={styles.pcList}>
           <a className={styles.pcLink} href="/menu">
             <Image
-              src="/logo-menu.png"
-              alt="メニューページへ"
+              src="/menu.svg"
+              alt=""
               loading="lazy"
               width={200}
               height={200}
             />
+            <span>MENU</span>
           </a>
           <a className={styles.pcLink} href="/map">
             <Image
-              src="/logo-map.png"
-              alt="マップページへ"
+              src="/map.svg"
+              alt=""
               loading="lazy"
               width={200}
               height={200}
             />
+            <span>MAP</span>
           </a>
           <a className={styles.pcLink} href="/news">
             <Image
-              src="/logo-news.png"
-              alt="ニュースページへ"
+              src="/news.svg"
+              alt=""
               loading="lazy"
               width={200}
               height={200}
             />
+            <span>NEWS</span>
           </a>
           <a className={styles.pcLink} href="/contact">
             <Image
-              src="/logo-contact.png"
-              alt="お問い合わせページへ"
+              src="/mail.svg"
+              alt=""
               loading="lazy"
               width={200}
               height={200}
             />
+            <span>CONTACT</span>
           </a>
         </div>
       </div>
@@ -68,11 +71,11 @@ export default function Header() {
         </h1>
         <a className={styles.spContact} href="/contact">
           <Image
-            src="/logo-contact.png"
-            alt="お問い合わせページへ"
+            src="/mail.svg"
+            alt="お問い合わせ"
             loading="lazy"
-            width={200}
-            height={200}
+            width={100}
+            height={100}
           />
         </a>
       </div>

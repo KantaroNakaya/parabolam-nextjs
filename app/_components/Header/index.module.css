@@ -34,13 +34,20 @@
 .pcLink {
     display: flex;
     width: 80px;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
+    padding: 8px;
     background-color: #ffffff12;
 }
 
+.pcLink span {
+    font-size: 0.8rem;
+    font-weight: bold;
+}
+
 .pcLink img {
-    width: 100%;
+    width: 32%;
     height: auto;
 }
 
@@ -92,16 +99,17 @@
 
     .spContact {
         display: block;
-        width: 80px;
-        height: 80px;
+        width: 40px;
+        height: 40px;
         position: absolute;
         right: 0%;
         top: 50%;
-        transform: translateY(-50%) translateX(-10%);
+        transform: translateY(-50%) translateX(-50%);
     }
 
     .spContact img {
         width: 100%;
+        opacity: 0.9;
     }
 
     .spContact:hover {
