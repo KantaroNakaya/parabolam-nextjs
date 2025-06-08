@@ -15,6 +15,8 @@
 .image {
     width: 200px;
     height: auto;
+    aspect-ratio: 16/9;
+    object-fit: cover;
     border-radius: var(--border-radius);
 }
 .title {

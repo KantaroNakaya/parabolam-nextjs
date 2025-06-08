@@ -28,7 +28,7 @@ export default function NewsList({ news }: Props) {
                             />
                         ) : (
                             <Image
-                                src="/no-image.png"
+                                src="/no-image.jpg"
                                 alt="NO Image"
                                 className={styles.image}
                                 width={1200}
