@@ -1,16 +1,39 @@
-.mvText {
-  position: absolute;
-  width: 50%;
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%, -50%);
-  z-index: 2;
+.content {
+    position: absolute;
+    width: 50%;
+    padding: 8px 0;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 2;
 }
-.mvText img {
-  width: 100%;
+.text {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    color: #fff;
+    font-family: "Kaisei HarunoUmi", serif;
+    line-height: 1.2;
+    text-align: center;
+    text-shadow:
+        0 0 10px var(--color-red),
+        0 0 20px var(--color-red),
+        0 0 40px var(--color-red),
+        0 0 80px var(--color-red);
+
+}
+.text1 {
+    display: block;
+    font-size: 1.6rem;
+    font-weight: bold;
+}
+.text2 {
+    display: block;
+    font-size: 2.2rem;
+    font-weight: bold;
 }
 @media screen and (max-width: 768px) {
-  .mvText {
-    width: 75%;
-  }
+    .content {
+        width: 75%;
+    }
 }
