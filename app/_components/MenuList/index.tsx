@@ -1,35 +1,45 @@
 "use client";
+
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Pagination } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/pagination";
 import styles from "./index.module.css";
 import MenuCard from "@/app/_components/MenuCard";
-import { drinkMenu } from "@/app/_libs/drinkMenu";
-import { foodMenu } from "@/app/_libs/foodMenu";
+import type { Menu, MenuCategory } from "@/app/_libs/microcms";
 
-interface DrinkItem {
-    name: string;
-    price: number;
-    genre: string;
+interface MenuListProps {
+    menuData: Menu[];
+    categoryData: MenuCategory[];
 }
 
-interface MenuCardProps {
-    data: DrinkItem[];
-}
+export default function MenuList({ menuData, categoryData }: MenuListProps) {
+    // カテゴリーデータをtypeで分類
+    const drinkCategories = categoryData
+        .filter((category) => category.type[0] === "drink")
+        .sort((a, b) => a.order - b.order);
 
-export default function MenuList({ data }: MenuCardProps) {
-    const beerMenu = drinkMenu.filter((item) => item.genre === "ビール");
-    const whiskeyMenu = drinkMenu.filter((item) => item.genre === "ウイスキー");
-    const ginMenu = drinkMenu.filter((item) => item.genre === "ジン");
-    const vodkaMenu = drinkMenu.filter((item) => item.genre === "ウォッカ");
-    const cocktailMenu = drinkMenu.filter((item) => item.genre === "カクテル");
-    const softDrinkMenu = drinkMenu.filter(
-        (item) => item.genre === "ソフトドリンク"
-    );
-    const pastaMenu = foodMenu.filter((item) => item.genre === "パスタ");
-    const pizzaMenu = foodMenu.filter((item) => item.genre === "ピザ");
-    const riceMenu = foodMenu.filter((item) => item.genre === "ライス");
+    const foodCategories = categoryData
+        .filter((category) => category.type[0] === "food")
+        .sort((a, b) => a.order - b.order);
+
+    // ドリンクメニューをカテゴリー別にフィルタリング
+    const drinkMenus = drinkCategories
+        .map((category) =>
+            menuData.filter(
+                (item) => item.category && item.category.id === category.id
+            )
+        )
+        .filter((menu) => menu.length > 0);
+
+    // フードメニューをカテゴリー別にフィルタリング
+    const foodMenus = foodCategories
+        .map((category) =>
+            menuData.filter(
+                (item) => item.category && item.category.id === category.id
+            )
+        )
+        .filter((menu) => menu.length > 0);
 
     return (
         <div className={`menuList ${styles.container}`}>
@@ -46,24 +56,11 @@ export default function MenuList({ data }: MenuCardProps) {
                     slidesPerView={1}
                     autoHeight={true}
                 >
-                    <SwiperSlide>
-                        <MenuCard data={beerMenu} />
-                    </SwiperSlide>
-                    <SwiperSlide>
-                        <MenuCard data={whiskeyMenu} />
-                    </SwiperSlide>
-                    <SwiperSlide>
-                        <MenuCard data={ginMenu} />
-                    </SwiperSlide>
-                    <SwiperSlide>
-                        <MenuCard data={vodkaMenu} />
-                    </SwiperSlide>
-                    <SwiperSlide>
-                        <MenuCard data={cocktailMenu} />
-                    </SwiperSlide>
-                    <SwiperSlide>
-                        <MenuCard data={softDrinkMenu} />
-                    </SwiperSlide>
+                    {drinkMenus.map((menu, index) => (
+                        <SwiperSlide key={index}>
+                            <MenuCard data={menu} />
+                        </SwiperSlide>
+                    ))}
                 </Swiper>
                 <div className="swiper-pagination-drink"></div>
             </section>
@@ -79,15 +76,11 @@ export default function MenuList({ data }: MenuCardProps) {
                     spaceBetween={32}
                     slidesPerView={1}
                 >
-                    <SwiperSlide>
-                        <MenuCard data={pastaMenu} />
-                    </SwiperSlide>
-                    <SwiperSlide>
-                        <MenuCard data={pizzaMenu} />
-                    </SwiperSlide>
-                    <SwiperSlide>
-                        <MenuCard data={riceMenu} />
-                    </SwiperSlide>
+                    {foodMenus.map((menu, index) => (
+                        <SwiperSlide key={index}>
+                            <MenuCard data={menu} />
+                        </SwiperSlide>
+                    ))}
                 </Swiper>
                 <div className="swiper-pagination-food"></div>
             </section>

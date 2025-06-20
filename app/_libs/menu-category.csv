@@ -1,0 +1,10 @@
+"コンテンツID※空欄で構いません。特定の値を設定したい場合に入力してください。",name,type,order
+pasta,パスタ,food,1
+pizza,ピザ,food,2
+rice,ライス,food,3
+beer,ビール,drink,1
+whiskey,ウイスキー,drink,2
+gin,ジン,drink,3
+vodka,ウォッカ,drink,4
+cocktail,カクテル,drink,5
+softDrink,ソフトドリンク,drink,6 
