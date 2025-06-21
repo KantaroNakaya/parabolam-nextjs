@@ -40,7 +40,7 @@
     width: 80%;
     max-width: 480px;
     margin: 0 auto;
-    font-size: 18px;
+    font-size: 0.9rem;
 }
 
 .image {
@@ -76,7 +76,7 @@
     background-position: bottom right;
     background-repeat: no-repeat;
     transition: background-size 0.8s ease-out;
-    font-size: 24px;
+    font-size: 1.1rem;
     font-weight: bold;
     text-align: center;
     line-height: 1.5;
@@ -102,9 +102,6 @@
         left: -3%;
         transform: rotate(-8deg);
     }
-    .animateLine {
-        font-size: 20px;
-    }
 
     .pin {
         margin: 0 auto;
@@ -116,7 +113,6 @@
 
     .desc {
         max-width: 312px;
-        font-size: 16px;
     }
     .image {
         width: 32%;

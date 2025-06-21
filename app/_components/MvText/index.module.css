@@ -23,19 +23,11 @@
 }
 .text1 {
     display: block;
-    font-size: 2.4rem;
+    font-size: 1.2rem;
     font-weight: bold;
 }
 .text2 {
     display: block;
-    font-size: 3.2rem;
+    font-size: 1.8rem;
     font-weight: bold;
-}
-@media screen and (max-width: 768px) {
-    .text1 {
-        font-size: 1.6rem;
-    }
-    .text2 {
-        font-size: 2.2rem;
-    }
 }
