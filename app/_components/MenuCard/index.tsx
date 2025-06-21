@@ -1,6 +1,5 @@
 import styles from "./index.module.css";
 import Image from "next/image";
-import { menuImage } from "@/app/_libs/menuImage";
 import type { Menu as MenuItem } from "@/app/_libs/microcms";
 
 interface MenuCardProps {
@@ -8,11 +7,13 @@ interface MenuCardProps {
 }
 
 export default function MenuCard({ data }: MenuCardProps) {
-    const categoryId = data[0].category.id as keyof typeof menuImage;
+    const category = data[0].category;
+    const imageUrl = category.image?.url || "/no-image.jpg";
+
     return (
         <div className={styles.card}>
             <div className={styles.title}>
-                <span>{data[0].category.name}</span>
+                <span>{category.name}</span>
             </div>
             <table className={styles.menu}>
                 <tbody>
@@ -26,7 +27,7 @@ export default function MenuCard({ data }: MenuCardProps) {
             </table>
             <Image
                 className={styles.photo}
-                src={menuImage[categoryId]}
+                src={imageUrl}
                 alt=""
                 loading="lazy"
                 width={100}

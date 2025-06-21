@@ -14,6 +14,10 @@ interface MenuListProps {
 }
 
 export default function MenuList({ menuData, categoryData }: MenuListProps) {
+    // デバッグ情報
+    console.log("MenuList - menuData:", menuData);
+    console.log("MenuList - categoryData:", categoryData);
+
     // カテゴリーデータをtypeで分類
     const drinkCategories = categoryData
         .filter((category) => category.type[0] === "drink")
@@ -22,6 +26,9 @@ export default function MenuList({ menuData, categoryData }: MenuListProps) {
     const foodCategories = categoryData
         .filter((category) => category.type[0] === "food")
         .sort((a, b) => a.order - b.order);
+
+    console.log("MenuList - drinkCategories:", drinkCategories);
+    console.log("MenuList - foodCategories:", foodCategories);
 
     // ドリンクメニューをカテゴリー別にフィルタリング
     const drinkMenus = drinkCategories
@@ -40,6 +47,9 @@ export default function MenuList({ menuData, categoryData }: MenuListProps) {
             )
         )
         .filter((menu) => menu.length > 0);
+
+    console.log("MenuList - drinkMenus:", drinkMenus);
+    console.log("MenuList - foodMenus:", foodMenus);
 
     return (
         <div className={`menuList ${styles.container}`}>

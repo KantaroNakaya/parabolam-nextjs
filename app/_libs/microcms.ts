@@ -15,13 +15,7 @@ export type MenuCategory = {
     name: string;
     type: string[];
     order: number;
-} & MicroCMSListContent;
-
-export type MenuImage = {
-    categoryId: string;
-    categoryName: string;
-    image: MicroCMSImage;
-    categoryType: "drink" | "food";
+    image?: MicroCMSImage;
 } & MicroCMSListContent;
 
 export type News = {
@@ -118,14 +112,6 @@ export const getAllMenuList = async (queries?: MicroCMSQueries) => {
 export const getAllMenuCategoryList = async (queries?: MicroCMSQueries) => {
     const listData = await client.getAllContents<MenuCategory>({
         endpoint: "menu-category",
-        queries,
-    });
-    return listData;
-};
-
-export const getAllMenuImageList = async (queries?: MicroCMSQueries) => {
-    const listData = await client.getAllContents<MenuImage>({
-        endpoint: "menu-images",
         queries,
     });
     return listData;
