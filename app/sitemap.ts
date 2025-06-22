@@ -1,7 +1,8 @@
 import { MetadataRoute } from 'next';
 import { getAllCategoryList, getAllNewsList } from './_libs/microcms';
 
-const buildurl = (path?: string) => `http://localhost:3000${path ?? ''}`;
+const aURL = process.env.SITE_URL || 'http://localhost:3000';
+const buildurl = (path?: string) => `${aURL}${path ?? ''}`;
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     const newsContents = await getAllNewsList();
@@ -27,15 +28,19 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
             lastModified: now,
         },
         {
-            url: buildurl('/members'),
-            lastModified: now,
-        },
-        {
-            url: buildurl('/contact'),
+            url: buildurl('/menu'),
             lastModified: now,
         },
         {
             url: buildurl('/news'),
+            lastModified: now,
+        },
+        {
+            url: buildurl('/map'),
+            lastModified: now,
+        },
+        {
+            url: buildurl('/contact'),
             lastModified: now,
         },
         ...newsUrls,
