@@ -1,38 +1,38 @@
 {
-  "name": "parabolam-nextjs",
-  "version": "0.1.0",
-  "private": true,
-  "scripts": {
-    "dev": "next dev",
-    "build": "next build",
-    "start": "next start",
-    "lint": "next lint",
-    "format": "prettier --write ."
-  },
-  "dependencies": {
-    "@fortawesome/fontawesome-svg-core": "^6.7.2",
-    "@fortawesome/free-brands-svg-icons": "^6.7.2",
-    "@fortawesome/free-solid-svg-icons": "^6.7.2",
-    "@fortawesome/react-fontawesome": "^0.2.2",
-    "@next/third-parties": "^14.1.4",
-    "classnames": "^2.5.1",
-    "dayjs": "^1.11.10",
-    "microcms-js-sdk": "^3.1.0",
-    "next": "^14.2.25",
-    "nextjs-basic-auth-middleware": "^3.1.0",
-    "nodemailer": "^7.0.3",
-    "react": "^18",
-    "react-dom": "^18",
-    "swiper": "^11.2.6"
-  },
-  "devDependencies": {
-    "@types/node": "^20",
-    "@types/nodemailer": "^6.4.17",
-    "@types/react": "^18",
-    "@types/react-dom": "^18",
-    "eslint": "^8",
-    "eslint-config-next": "14.1.4",
-    "prettier": "^3.5.3",
-    "typescript": "^5"
-  }
+    "name": "parabolam-nextjs",
+    "version": "0.1.0",
+    "private": true,
+    "scripts": {
+        "dev": "next dev",
+        "build": "next build",
+        "start": "next start",
+        "lint": "next lint",
+        "format": "prettier --write ."
+    },
+    "dependencies": {
+        "@fortawesome/fontawesome-svg-core": "^6.7.2",
+        "@fortawesome/free-brands-svg-icons": "^6.7.2",
+        "@fortawesome/free-solid-svg-icons": "^6.7.2",
+        "@fortawesome/react-fontawesome": "^0.2.2",
+        "@next/third-parties": "^14.1.4",
+        "classnames": "^2.5.1",
+        "dayjs": "^1.11.10",
+        "microcms-js-sdk": "^3.1.0",
+        "next": "^14.2.25",
+        "nextjs-basic-auth-middleware": "^3.1.0",
+        "nodemailer": "^7.0.3",
+        "react": "^18",
+        "react-dom": "^18",
+        "swiper": "^11.2.6"
+    },
+    "devDependencies": {
+        "@types/node": "^20",
+        "@types/nodemailer": "^6.4.17",
+        "@types/react": "^18",
+        "@types/react-dom": "^18",
+        "eslint": "^8",
+        "eslint-config-next": "14.1.4",
+        "prettier": "^3.5.3",
+        "typescript": "^5"
+    }
 }

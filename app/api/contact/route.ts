@@ -1,16 +1,16 @@
-import { NextResponse } from "next/server";
-import nodemailer from "nodemailer";
+import { NextResponse } from 'next/server';
+import nodemailer from 'nodemailer';
 
 export async function POST(request: Request) {
     try {
         const { name, email, message } = await request.json();
-        console.log("Received form data:", { name, email, message });
+        console.log('Received form data:', { name, email, message });
 
         // バリデーション
         if (!name || !email || !message) {
-            console.log("Validation failed: missing required fields");
+            console.log('Validation failed: missing required fields');
             return NextResponse.json(
-                { error: "必須項目が入力されていません" },
+                { error: '必須項目が入力されていません' },
                 { status: 400 }
             );
         }
@@ -30,13 +30,13 @@ export async function POST(request: Request) {
             .map(([key]) => key);
 
         if (missingEnvVars.length > 0) {
-            console.error("Missing environment variables:", missingEnvVars);
+            console.error('Missing environment variables:', missingEnvVars);
             throw new Error(
-                `Missing environment variables: ${missingEnvVars.join(", ")}`
+                `Missing environment variables: ${missingEnvVars.join(', ')}`
             );
         }
 
-        console.log("Creating transporter with config:", {
+        console.log('Creating transporter with config:', {
             host: process.env.SMTP_HOST,
             port: process.env.SMTP_PORT,
             user: process.env.SMTP_USER,
@@ -70,37 +70,37 @@ Parabolam宛てに${name}様よりお問い合わせがありました。
             `,
         };
 
-        console.log("Attempting to send email to:", process.env.CONTACT_EMAIL);
+        console.log('Attempting to send email to:', process.env.CONTACT_EMAIL);
 
         // メール送信
         await transporter.sendMail(mailOptions);
-        console.log("Email sent successfully");
+        console.log('Email sent successfully');
 
         return NextResponse.json(
-            { message: "メッセージが送信されました" },
+            { message: 'メッセージが送信されました' },
             { status: 200 }
         );
     } catch (error) {
-        console.error("Detailed error in contact API:", error);
+        console.error('Detailed error in contact API:', error);
 
         // エラーの種類に応じて適切なメッセージを返す
         if (error instanceof Error) {
-            if (error.message.includes("SMTP")) {
+            if (error.message.includes('SMTP')) {
                 return NextResponse.json(
-                    { error: "メールサーバーへの接続に失敗しました" },
+                    { error: 'メールサーバーへの接続に失敗しました' },
                     { status: 500 }
                 );
             }
-            if (error.message.includes("Missing environment variables")) {
+            if (error.message.includes('Missing environment variables')) {
                 return NextResponse.json(
-                    { error: "環境変数が正しく設定されていません" },
+                    { error: '環境変数が正しく設定されていません' },
                     { status: 500 }
                 );
             }
         }
 
         return NextResponse.json(
-            { error: "メッセージの送信に失敗しました" },
+            { error: 'メッセージの送信に失敗しました' },
             { status: 500 }
         );
     }

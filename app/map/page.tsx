@@ -1,5 +1,5 @@
-import PageTitle from "@/app/_components/PageTitle";
-import styles from "./page.module.css";
+import PageTitle from '@/app/_components/PageTitle';
+import styles from './page.module.css';
 
 export default function Page() {
     return (
@@ -26,8 +26,14 @@ export default function Page() {
             </div>
             <div className={styles.access}>
                 <p className={styles.accessText}>心斎橋駅から徒歩4分</p>
-                <a className={styles.accessLink} href="https://www.athome.co.jp/rent_store/6976529004/?BKLISTID=002LPC&SEARCHDIV=1&sref=list_simple" target="_blank" rel="noopener noreferrer">
-                    (「BAR PARABOLAM」は架空のバーです。大阪府大阪市中央区東心斎橋の物件で営業していることを想定しています。）
+                <a
+                    className={styles.accessLink}
+                    href="https://www.athome.co.jp/rent_store/6976529004/?BKLISTID=002LPC&SEARCHDIV=1&sref=list_simple"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                >
+                    (「BAR
+                    PARABOLAM」は架空のバーです。大阪府大阪市中央区東心斎橋の物件で営業していることを想定しています。）
                 </a>
             </div>
         </div>

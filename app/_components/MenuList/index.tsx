@@ -1,12 +1,12 @@
-"use client";
+'use client';
 
-import { Swiper, SwiperSlide } from "swiper/react";
-import { Pagination } from "swiper/modules";
-import "swiper/css";
-import "swiper/css/pagination";
-import styles from "./index.module.css";
-import MenuCard from "@/app/_components/MenuCard";
-import type { Menu, MenuCategory } from "@/app/_libs/microcms";
+import { Swiper, SwiperSlide } from 'swiper/react';
+import { Pagination } from 'swiper/modules';
+import 'swiper/css';
+import 'swiper/css/pagination';
+import styles from './index.module.css';
+import MenuCard from '@/app/_components/MenuCard';
+import type { Menu, MenuCategory } from '@/app/_libs/microcms';
 
 interface MenuListProps {
     menuData: Menu[];
@@ -15,20 +15,20 @@ interface MenuListProps {
 
 export default function MenuList({ menuData, categoryData }: MenuListProps) {
     // デバッグ情報
-    console.log("MenuList - menuData:", menuData);
-    console.log("MenuList - categoryData:", categoryData);
+    console.log('MenuList - menuData:', menuData);
+    console.log('MenuList - categoryData:', categoryData);
 
     // カテゴリーデータをtypeで分類
     const drinkCategories = categoryData
-        .filter((category) => category.type[0] === "drink")
+        .filter((category) => category.type[0] === 'drink')
         .sort((a, b) => a.order - b.order);
 
     const foodCategories = categoryData
-        .filter((category) => category.type[0] === "food")
+        .filter((category) => category.type[0] === 'food')
         .sort((a, b) => a.order - b.order);
 
-    console.log("MenuList - drinkCategories:", drinkCategories);
-    console.log("MenuList - foodCategories:", foodCategories);
+    console.log('MenuList - drinkCategories:', drinkCategories);
+    console.log('MenuList - foodCategories:', foodCategories);
 
     // ドリンクメニューをカテゴリー別にフィルタリング
     const drinkMenus = drinkCategories
@@ -48,8 +48,8 @@ export default function MenuList({ menuData, categoryData }: MenuListProps) {
         )
         .filter((menu) => menu.length > 0);
 
-    console.log("MenuList - drinkMenus:", drinkMenus);
-    console.log("MenuList - foodMenus:", foodMenus);
+    console.log('MenuList - drinkMenus:', drinkMenus);
+    console.log('MenuList - foodMenus:', foodMenus);
 
     return (
         <div className={`menuList ${styles.container}`}>
@@ -57,7 +57,7 @@ export default function MenuList({ menuData, categoryData }: MenuListProps) {
                 <h3 className={styles.title}>〜DRINK MENU〜</h3>
                 <Swiper
                     pagination={{
-                        el: ".swiper-pagination-drink",
+                        el: '.swiper-pagination-drink',
                         clickable: true,
                     }}
                     modules={[Pagination]}
@@ -78,7 +78,7 @@ export default function MenuList({ menuData, categoryData }: MenuListProps) {
                 <h3 className={styles.title}>〜FOOD MENU〜</h3>
                 <Swiper
                     pagination={{
-                        el: ".swiper-pagination-food",
+                        el: '.swiper-pagination-food',
                         clickable: true,
                     }}
                     modules={[Pagination]}

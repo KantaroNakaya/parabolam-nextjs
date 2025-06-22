@@ -11,7 +11,7 @@
     flex-direction: column;
     gap: 4px;
     color: #fff;
-    font-family: "Kaisei HarunoUmi", serif;
+    font-family: 'Kaisei HarunoUmi', serif;
     line-height: 1.2;
     text-align: center;
     text-shadow:
@@ -19,7 +19,6 @@
         0 0 20px var(--color-red),
         0 0 40px var(--color-red),
         0 0 80px var(--color-red);
-
 }
 .text1 {
     display: block;

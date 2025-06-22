@@ -1,9 +1,9 @@
-"use client";
+'use client';
 
-import { submitContactForm } from "@/app/_actions/contact";
-import styles from "./index.module.css";
-import { sendGTMEvent } from "@next/third-parties/google";
-import { useState } from "react";
+import { submitContactForm } from '@/app/_actions/contact';
+import styles from './index.module.css';
+import { sendGTMEvent } from '@next/third-parties/google';
+import { useState } from 'react';
 
 type FormState = {
     success: boolean;
@@ -21,9 +21,9 @@ export default function ContactForm() {
         setIsLoading(true);
         try {
             const data = {
-                name: `${formData.get("lastname")} ${formData.get("firstname")}`,
-                email: formData.get("email") as string,
-                message: formData.get("message") as string,
+                name: `${formData.get('lastname')} ${formData.get('firstname')}`,
+                email: formData.get('email') as string,
+                message: formData.get('message') as string,
             };
 
             const result = await submitContactForm(data);
@@ -31,8 +31,8 @@ export default function ContactForm() {
 
             if (result.success) {
                 sendGTMEvent({
-                    event: "contact",
-                    value: "submit",
+                    event: 'contact',
+                    value: 'submit',
                 });
             }
         } finally {

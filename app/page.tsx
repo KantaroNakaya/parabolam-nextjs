@@ -1,13 +1,13 @@
-import styles from "@/app/page.module.css";
-import { getNewsList } from "@/app/_libs/microcms";
-import { TOP_NEWS_LIMIT } from "@/app/_constants";
-import NewsList from "@/app/_components/NewsList";
-import MvSlider from "@/app/_components/MvSlider";
-import MvText from "@/app/_components/MvText";
-import { mvImages } from "@/app/_libs/mv";
-import Card from "@/app/_components/IntroCard";
-import { cards } from "@/app/_libs/card";
-import ButtonLink from "@/app/_components/ButtonLink";
+import styles from '@/app/page.module.css';
+import { getNewsList } from '@/app/_libs/microcms';
+import { TOP_NEWS_LIMIT } from '@/app/_constants';
+import NewsList from '@/app/_components/NewsList';
+import MvSlider from '@/app/_components/MvSlider';
+import MvText from '@/app/_components/MvText';
+import { mvImages } from '@/app/_libs/mv';
+import Card from '@/app/_components/IntroCard';
+import { cards } from '@/app/_libs/card';
+import ButtonLink from '@/app/_components/ButtonLink';
 export default async function Home() {
     const data = await getNewsList({
         limit: TOP_NEWS_LIMIT,

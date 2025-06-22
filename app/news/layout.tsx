@@ -1,20 +1,20 @@
 // import Hero from "@/app/_components/Sv";
-import Sheet from "@/app/_components/Sheet";
+import Sheet from '@/app/_components/Sheet';
 
 export const metadata = {
-  title: "ニュース",
+    title: 'ニュース',
 };
 
 type Props = {
-  children: React.ReactNode;
+    children: React.ReactNode;
 };
 
 export const revalidate = 60;
 
 export default function NewsLayout({ children }: Props) {
-  return (
-    <>
-      <Sheet>{children}</Sheet>
-    </>
-  );
+    return (
+        <>
+            <Sheet>{children}</Sheet>
+        </>
+    );
 }

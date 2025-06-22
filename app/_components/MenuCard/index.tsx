@@ -1,6 +1,6 @@
-import styles from "./index.module.css";
-import Image from "next/image";
-import type { Menu as MenuItem } from "@/app/_libs/microcms";
+import styles from './index.module.css';
+import Image from 'next/image';
+import type { Menu as MenuItem } from '@/app/_libs/microcms';
 
 interface MenuCardProps {
     data: MenuItem[];
@@ -8,7 +8,7 @@ interface MenuCardProps {
 
 export default function MenuCard({ data }: MenuCardProps) {
     const category = data[0].category;
-    const imageUrl = category.image?.url || "/no-image.jpg";
+    const imageUrl = category.image?.url || '/no-image.jpg';
 
     return (
         <div className={styles.card}>

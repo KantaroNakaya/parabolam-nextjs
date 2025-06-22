@@ -1,9 +1,9 @@
-import styles from "./index.module.css";
+import styles from './index.module.css';
 
 type Props = {
-  title: string;
+    title: string;
 };
 
 export default function PageTitle({ title }: Props) {
-  return <div className={styles.title}>{title}</div>;
+    return <div className={styles.title}>{title}</div>;
 }
