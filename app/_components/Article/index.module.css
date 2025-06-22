@@ -24,10 +24,6 @@
     gap: 24px;
 }
 
-.categoryLink {
-    display: flex;
-}
-
 .thumbnail {
     width: 100%;
     height: auto;

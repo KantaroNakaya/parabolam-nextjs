@@ -23,11 +23,6 @@ export type News = {
     description: string;
     content: string;
     thumbnail?: MicroCMSImage;
-    category: Category;
-} & MicroCMSListContent;
-
-export type Category = {
-    name: string;
 } & MicroCMSListContent;
 
 if (!process.env.MICROCMS_SERVICE_DOMAIN) {
@@ -75,28 +70,9 @@ export const getNewsDetail = async (
     return detailData;
 };
 
-export const getCategoryDetail = async (
-    contentId: string,
-    queries?: MicroCMSQueries
-) => {
-    const detailData = await client.getListDetail<Category>({
-        endpoint: 'news-category',
-        contentId,
-        queries,
-    });
-    return detailData;
-};
-
 export const getAllNewsList = async () => {
     const listData = await client.getAllContents<News>({
         endpoint: 'news',
-    });
-    return listData;
-};
-
-export const getAllCategoryList = async () => {
-    const listData = await client.getAllContents<Category>({
-        endpoint: 'news-category',
     });
     return listData;
 };
