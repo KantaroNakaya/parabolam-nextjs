@@ -36,6 +36,7 @@ export default function MainVisual({ images }: MainVisualProps) {
                         width={image.image.width}
                         height={image.image.height}
                         priority={index === 0}
+                        sizes="100vw"
                     />
                 </SwiperSlide>
             ))}
