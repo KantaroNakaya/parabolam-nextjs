@@ -30,6 +30,13 @@ export type MvImage = {
     order: number;
 } & MicroCMSListContent;
 
+export type Appeal = {
+    point: string;
+    desc: string;
+    image: MicroCMSImage;
+    order: number;
+} & MicroCMSListContent;
+
 if (!process.env.MICROCMS_SERVICE_DOMAIN) {
     throw new Error('MICROCMS_SERVICE_DOMAIN is required');
 }
@@ -101,6 +108,22 @@ export const getAllMenuCategoryList = async (queries?: MicroCMSQueries) => {
 export const getMvImages = async (queries?: MicroCMSQueries) => {
     const listData = await client.getList<MvImage>({
         endpoint: 'main-visual',
+        queries,
+    });
+    return listData;
+};
+
+export const getAppeals = async (queries?: MicroCMSQueries) => {
+    const listData = await client.getList<Appeal>({
+        endpoint: 'appeals',
+        queries,
+    });
+    return listData;
+};
+
+export const getAllAppeals = async (queries?: MicroCMSQueries) => {
+    const listData = await client.getAllContents<Appeal>({
+        endpoint: 'appeals',
         queries,
     });
     return listData;

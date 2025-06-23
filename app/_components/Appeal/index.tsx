@@ -3,15 +3,14 @@
 import { useEffect, useRef } from 'react';
 import styles from './index.module.css';
 import Image from 'next/image';
+import type { Appeal } from '@/app/_libs/microcms';
 
-type CardProps = {
-    point: string;
-    desc: string;
-    image: string;
+type AppealProps = {
+    data: Appeal;
     index: number;
 };
 
-export default function Card(card: CardProps) {
+export default function Appeal({ data, index }: AppealProps) {
     const scrollRef = useRef<HTMLSpanElement>(null);
 
     useEffect(() => {
@@ -43,7 +42,7 @@ export default function Card(card: CardProps) {
     }, []);
 
     return (
-        <div className={`${styles.card} ${styles[`card${card.index}`]}`}>
+        <div className={`${styles.card} ${styles[`card${index}`]}`}>
             <div className={styles.pin}>
                 <Image
                     src="/pin.png"
@@ -56,18 +55,18 @@ export default function Card(card: CardProps) {
             <div className={styles.text}>
                 <p className={styles.point}>
                     <span className={styles.animateLine} ref={scrollRef}>
-                        {card.point}
+                        {data.point}
                     </span>
                 </p>
-                <p className={styles.desc}>{card.desc}</p>
+                <p className={styles.desc}>{data.desc}</p>
             </div>
             <div className={styles.image}>
                 <Image
-                    src={card.image}
+                    src={data.image?.url || '/no-image.jpg'}
                     alt=""
                     loading="lazy"
-                    width={200}
-                    height={200}
+                    width={data.image?.width || 200}
+                    height={data.image?.height || 150}
                 />
             </div>
         </div>

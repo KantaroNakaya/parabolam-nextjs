@@ -1,11 +1,10 @@
 import styles from '@/app/page.module.css';
-import { getNewsList, getMvImages } from '@/app/_libs/microcms';
+import { getNewsList, getMvImages, getAllAppeals } from '@/app/_libs/microcms';
 import { TOP_NEWS_LIMIT } from '@/app/_constants';
 import NewsList from '@/app/_components/NewsList';
 import MainVisual from '@/app/_components/MainVisual';
 import MvText from '@/app/_components/MvText';
-import Card from '@/app/_components/IntroCard';
-import { cards } from '@/app/_libs/card';
+import Appeal from '@/app/_components/Appeal';
 import ButtonLink from '@/app/_components/ButtonLink';
 
 export default async function Home() {
@@ -13,6 +12,10 @@ export default async function Home() {
         limit: TOP_NEWS_LIMIT,
     });
     const mvImages = await getMvImages();
+    const appeals = await getAllAppeals();
+
+    // orderでソート
+    const sortedAppeals = [...appeals].sort((a, b) => a.order - b.order);
 
     return (
         <>
@@ -21,14 +24,8 @@ export default async function Home() {
                 <MvText />
             </section>
             <section className={styles.feature}>
-                {cards.map((card, index) => (
-                    <Card
-                        key={card.key}
-                        point={card.point}
-                        desc={card.desc}
-                        image={card.image}
-                        index={index + 1}
-                    />
+                {sortedAppeals.map((appeal, index) => (
+                    <Appeal key={appeal.id} data={appeal} index={index + 1} />
                 ))}
             </section>
             <section className={styles.news}>
