@@ -2,10 +2,15 @@ import styles from '@/app/page.module.css';
 import { getNewsList, getMvImages, getAllAppeals } from '@/app/_libs/microcms';
 import { TOP_NEWS_LIMIT } from '@/app/_constants';
 import NewsList from '@/app/_components/NewsList';
-import MainVisual from '@/app/_components/MainVisual';
+import dynamic from 'next/dynamic';
 import MvText from '@/app/_components/MvText';
 import Appeal from '@/app/_components/Appeal';
 import ButtonLink from '@/app/_components/ButtonLink';
+
+const MainVisual = dynamic(() => import('@/app/_components/MainVisual'), {
+    ssr: false,
+    loading: () => <div className={styles.mvSkeleton} />,
+});
 
 export default async function Home() {
     const data = await getNewsList({
