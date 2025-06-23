@@ -35,7 +35,7 @@ export default function MainVisual({ images }: MainVisualProps) {
                         alt=""
                         width={image.image.width}
                         height={image.image.height}
-                        loading="lazy"
+                        priority={index === 0}
                     />
                 </SwiperSlide>
             ))}
