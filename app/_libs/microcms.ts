@@ -25,6 +25,11 @@ export type News = {
     thumbnail?: MicroCMSImage;
 } & MicroCMSListContent;
 
+export type MvImage = {
+    image: MicroCMSImage;
+    order: number;
+} & MicroCMSListContent;
+
 if (!process.env.MICROCMS_SERVICE_DOMAIN) {
     throw new Error('MICROCMS_SERVICE_DOMAIN is required');
 }
@@ -88,6 +93,14 @@ export const getAllMenuList = async (queries?: MicroCMSQueries) => {
 export const getAllMenuCategoryList = async (queries?: MicroCMSQueries) => {
     const listData = await client.getAllContents<MenuCategory>({
         endpoint: 'menu-category',
+        queries,
+    });
+    return listData;
+};
+
+export const getMvImages = async (queries?: MicroCMSQueries) => {
+    const listData = await client.getList<MvImage>({
+        endpoint: 'main-visual',
         queries,
     });
     return listData;
