@@ -11,11 +11,11 @@ import 'swiper/css';
 import 'swiper/css/autoplay';
 import 'swiper/css/effect-fade';
 
-type MvSwiperProps = {
+type MainVisualProps = {
     images: MvImage[];
 };
 
-export default function MvSwiper({ images }: MvSwiperProps) {
+export default function MainVisual({ images }: MainVisualProps) {
     // orderでソート
     const sortedImages = [...images].sort((a, b) => a.order - b.order);
 
