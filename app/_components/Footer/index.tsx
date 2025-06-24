@@ -15,30 +15,30 @@ export default function Footer() {
             <div className={styles.snsBox}>
                 <div className={styles.snsBoxText}>FOLLOW ME</div>
                 <div className={styles.snsIcon}>
-                    <a className={styles.snsLink}>
+                    <p className={styles.snsLink}>
                         <FontAwesomeIcon
                             icon={faXTwitter}
                             className={styles.snsLink__icon}
                             aria-label="X（旧Twitter）ロゴ"
                             size="3x"
                         />
-                    </a>
-                    <a className={styles.snsLink}>
+                    </p>
+                    <p className={styles.snsLink}>
                         <FontAwesomeIcon
                             icon={faInstagram}
                             className={styles.snsLink__icon}
                             aria-label="instagramロゴ"
                             size="3x"
                         />
-                    </a>
-                    <a className={styles.snsLink}>
+                    </p>
+                    <p className={styles.snsLink}>
                         <FontAwesomeIcon
                             icon={faFacebookF}
                             className={styles.snsLink__icon}
                             aria-label="facebookロゴ"
                             size="3x"
                         />
-                    </a>
+                    </p>
                 </div>
             </div>
 
