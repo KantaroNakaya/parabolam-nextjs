@@ -1,4 +1,3 @@
-// import Hero from "@/app/_components/Sv";
 import Sheet from '@/app/_components/Sheet';
 
 export const metadata = {
