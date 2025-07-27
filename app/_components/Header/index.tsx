@@ -1,11 +1,12 @@
 import Image from 'next/image';
+import Link from 'next/link';
 import styles from './index.module.css';
 
 export default function Header() {
     return (
         <header>
             <div className={styles.pcNav}>
-                <a className={styles.pcShop} href="/">
+                <Link className={styles.pcShop} href="/">
                     <Image
                         src="/logo-shop.png"
                         alt="parabolam"
@@ -13,9 +14,9 @@ export default function Header() {
                         width={200}
                         height={200}
                     />
-                </a>
+                </Link>
                 <div className={styles.pcList}>
-                    <a className={styles.pcLink} href="/menu">
+                    <Link className={styles.pcLink} href="/menu">
                         <Image
                             src="/menu.svg"
                             alt=""
@@ -24,8 +25,8 @@ export default function Header() {
                             height={200}
                         />
                         <span>MENU</span>
-                    </a>
-                    <a className={styles.pcLink} href="/map">
+                    </Link>
+                    <Link className={styles.pcLink} href="/map">
                         <Image
                             src="/map.svg"
                             alt=""
@@ -34,8 +35,8 @@ export default function Header() {
                             height={200}
                         />
                         <span>MAP</span>
-                    </a>
-                    <a className={styles.pcLink} href="/news">
+                    </Link>
+                    <Link className={styles.pcLink} href="/news">
                         <Image
                             src="/news.svg"
                             alt=""
@@ -44,8 +45,8 @@ export default function Header() {
                             height={200}
                         />
                         <span>NEWS</span>
-                    </a>
-                    <a className={styles.pcLink} href="/contact">
+                    </Link>
+                    <Link className={styles.pcLink} href="/contact">
                         <Image
                             src="/mail.svg"
                             alt=""
@@ -54,12 +55,12 @@ export default function Header() {
                             height={200}
                         />
                         <span>CONTACT</span>
-                    </a>
+                    </Link>
                 </div>
             </div>
             <div className={styles.spNav}>
                 <h1>
-                    <a className={styles.spShop} href="/">
+                    <Link className={styles.spShop} href="/">
                         <Image
                             src="/logo-shop.png"
                             alt="parabolam"
@@ -67,9 +68,9 @@ export default function Header() {
                             width={500}
                             height={500}
                         />
-                    </a>
+                    </Link>
                 </h1>
-                <a className={styles.spContact} href="/contact">
+                <Link className={styles.spContact} href="/contact">
                     <Image
                         src="/mail.svg"
                         alt="お問い合わせ"
@@ -77,7 +78,7 @@ export default function Header() {
                         width={100}
                         height={100}
                     />
-                </a>
+                </Link>
             </div>
         </header>
     );

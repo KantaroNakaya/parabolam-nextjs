@@ -42,7 +42,7 @@ export default function Footer() {
                 </div>
             </div>
 
-            <a className={styles.footerLogo} href="/">
+            <Link className={styles.footerLogo} href="/">
                 <Image
                     src="/logo-shop.png"
                     alt="parabolam"
@@ -50,9 +50,9 @@ export default function Footer() {
                     width={500}
                     height={500}
                 />
-            </a>
+            </Link>
 
-            <a className={styles.footerLogoType} href="/">
+            <Link className={styles.footerLogoType} href="/">
                 <Image
                     src="/logo-title.png"
                     alt="parabolam"
@@ -60,7 +60,7 @@ export default function Footer() {
                     width={500}
                     height={500}
                 />
-            </a>
+            </Link>
 
             <p className={styles.copyright}>
                 copyright Parabolam CORP.-All Rights Reserved
