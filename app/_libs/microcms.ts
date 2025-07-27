@@ -93,6 +93,11 @@ export const getAllMenuList = async (queries?: MicroCMSQueries) => {
     const listData = await client.getAllContents<Menu>({
         endpoint: 'menu',
         queries,
+        customRequestInit: {
+            next: {
+                revalidate: 60,
+            },
+        },
     });
     return listData;
 };
@@ -101,6 +106,11 @@ export const getAllMenuCategoryList = async (queries?: MicroCMSQueries) => {
     const listData = await client.getAllContents<MenuCategory>({
         endpoint: 'menu-category',
         queries,
+        customRequestInit: {
+            next: {
+                revalidate: 60,
+            },
+        },
     });
     return listData;
 };
