@@ -3,7 +3,6 @@ import type { Metadata } from 'next';
 import { Kaisei_HarunoUmi, Noto_Serif_JP } from 'next/font/google';
 import Header from './_components/Header';
 import Footer from './_components/Footer';
-import { GoogleTagManager } from '@next/third-parties/google';
 import FixedNav from './_components/FixedNav';
 import PageTop from './_components/PageTop';
 
@@ -52,7 +51,6 @@ export default function RootLayout({
                 <PageTop />
                 <FixedNav />
             </body>
-            <GoogleTagManager gtmId="GTM-5627SN3F" />
         </html>
     );
 }

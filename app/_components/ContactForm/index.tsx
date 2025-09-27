@@ -2,7 +2,6 @@
 
 import { submitContactForm } from '@/app/_actions/contact';
 import styles from './index.module.css';
-import { sendGTMEvent } from '@next/third-parties/google';
 import { useState } from 'react';
 
 type FormState = {
@@ -30,10 +29,7 @@ export default function ContactForm() {
             setState(result);
 
             if (result.success) {
-                sendGTMEvent({
-                    event: 'contact',
-                    value: 'submit',
-                });
+                // GTM event removed
             }
         } finally {
             setIsLoading(false);
